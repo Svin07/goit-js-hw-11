@@ -1,0 +1,13 @@
+
+
+.search-form {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 40px;
+background-color: #3a19bc;
+}
+
+.internal_unit {
+    height: 32px;
+}
