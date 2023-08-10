@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 import Notiflix from 'notiflix';
 
 import axios from "axios";
@@ -66,14 +66,4 @@ function createMarkup(arr) {
 function hendlerBtn() {
   
 }
-=======
-import axios from "axios";
 
-axios.defaults.headers.common["x-api-key"] = "38679969-57ec4f21bcb0769bbee4ee870";
-
-
-
-const BASE_URL = "https://pixabay.com/api/";
-const API_KEY = "x-api-key";
-
->>>>>>> Stashed changes
