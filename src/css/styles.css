@@ -16,9 +16,9 @@ background-color: #3a19bc;
 {
     list-style: none;
     display: flex;
-flex-wrap: wrap;
-justify-content: space-between;
-gap: 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 .list-gallery li {
@@ -30,5 +30,7 @@ gap: 24px;
 }
 
 .load-more {
-
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
