@@ -4,22 +4,30 @@ import axios from "axios";
 
 axios.defaults.headers.common["x-api-key"] = "38721058-dcc1021070edf740dd0c7c82a";
 
-const BASE_URL = "https://pixabay.com/api/";
-const API_KEY = "38721058-dcc1021070edf740dd0c7c82a";
+import JSONPlaceholderAPI from './jsplaceholder-api';
+
 
 const form = document.querySelector('#search-form');
 const list = document.querySelector('.js-list');
+const downloadBtn = document.querySelector('.load-more');
+
+const JSONPlaceholderAPI = new JSONPlaceholderAPI();
 
 form.addEventListener('submit', hendlerSubmit);
+downloadBtn.addEventListener('click', hendlerBtn);
 
+
+
+console.log(JSONPlaceholderAPI);
 
 function hendlerSubmit(evt) {
     evt.preventDefault();
 
-    const {searchQuery} = evt.currentTarget.elements;
-
+    JSONPlaceholderAPI.query = evt.currentTarget.elements.searchQuery.value;
+    JSONPlaceholderAPI.getPhoto();
+  
     
-    getPhoto(searchQuery.value).then(data => (list.innerHTML = createMarkup(data.hits))).catch(err => console.log(err))
+  //  getPhoto(searchQuery).then(data => (list.innerHTML = createMarkup(data.hits))).catch(err => console.log(err))
     
     
 
@@ -30,16 +38,9 @@ function hendlerSubmit(evt) {
 
 
 
-
 // https://pixabay.com/api/?key=38721058-dcc1021070edf740dd0c7c82a&q=yellow+flower&image_type=photo&orientation=horizontal&safesearch=true&per_page=40
 
-async function getPhoto(params) {
-     const resp = await fetch(`${BASE_URL}?key=${API_KEY}&q=${params}&image_type=photo&orientation=horizontal&safesearch=true&per_page=40`);
-    if (!resp.ok) {
-        throw new Error(resp.statusText);
-    }
-    return resp.json();
-}
+
 
 function createMarkup(arr) {
     return arr.map(({webformatURL, largeImageURL, tags, likes, views, comments, downloads}) => `<li><div class="photo-card">
@@ -59,4 +60,8 @@ function createMarkup(arr) {
       </p>
     </div>
   </div></li>`).join("");
+}
+
+function hendlerBtn() {
+  
 }

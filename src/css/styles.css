@@ -11,3 +11,24 @@ background-color: #3a19bc;
 .internal_unit {
     height: 32px;
 }
+
+.list-gallery 
+{
+    list-style: none;
+    display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 24px;
+}
+
+.list-gallery li {
+    width: calc((100% - 24px) / 2);
+}
+
+.photo-card {
+    width: 300px;
+}
+
+.load-more {
+
+}
